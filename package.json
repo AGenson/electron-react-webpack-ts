@@ -11,6 +11,9 @@
   ],
   "author": "AGenson",
   "license": "MIT",
+  "scripts": {
+    "electron": "tsc src/main/index.ts && electron src/main"
+  },
   "devDependencies": {
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
