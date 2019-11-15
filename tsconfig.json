@@ -4,12 +4,6 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"],
-      "@public/*": ["public/*"],
-      "@main/": ["src/main/*"],
-      "@renderer": ["src/renderer/*"]
-    },
     "jsx": "react",
     "strict": true,
     "sourceMap": true,
@@ -20,7 +14,8 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "noImplicitReturns": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules"]
 }
