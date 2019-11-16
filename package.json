@@ -11,16 +11,20 @@
   ],
   "author": "AGenson",
   "license": "MIT",
-  "scripts": {
-    "start": "yarn run main:start",
-    "build": "yarn run renderer:build && yarn run main:build",
     "clean": "rimraf dist",
-    "dev": "run-p renderer:dev main:dev",
-    "main:start": "electron dist/main/main.bundle.js",
-    "main:build": "rimraf dist/main && webpack --config webpack/webpack.main.ts",
-    "main:dev": "nodemon --watch src/main/* -e ts --exec \"cross-env NODE_ENV=development yarn run main:build && yarn run main:start\"",
-    "renderer:build": "rimraf dist/renderer && webpack --config webpack/webpack.renderer.ts",
-    "renderer:dev": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.renderer.ts"
+    "scripts": {
+    "clean": "rimraf dist",
+    "start": "electron dist/main/main.bundle.js",
+    "build": "run-p renderer:build main:build",
+    "dev": "run-p -r renderer:dev main:dev",
+    "main:clean": "rimraf dist/main",
+    "main:build": "yarn run main:clean && webpack --config src/webpack/webpack.main.ts",
+    "main:dev-build": "cross-env NODE_ENV=development webpack --watch --config src/webpack/webpack.main.ts",
+    "main:dev-watch": "wait-on dist/main/main.bundle.js http://localhost:8080 && nodemon --watch dist/main/* --exec \"yarn start\"",
+    "main:dev": "yarn run main:clean && run-p -r main:dev-build main:dev-watch",
+    "renderer:clean": "rimraf dist/renderer",
+    "renderer:build": "yarn run renderer:clean && webpack --config src/webpack/webpack.renderer.ts",
+    "renderer:dev": "cross-env NODE_ENV=development webpack-dev-server --config src/webpack/webpack.renderer.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -50,6 +54,7 @@
     "style-loader": "^1.0.0",
     "ts-node": "^8.5.2",
     "typescript": "^3.7.2",
+    "wait-on": "^3.3.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
