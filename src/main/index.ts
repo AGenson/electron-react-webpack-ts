@@ -9,9 +9,12 @@ function createWindow(): void {
         height: 600
     })
 
-    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
-    mainWindow.loadFile(path.join(__dirname, '../../public/index.html'))
+    process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
     mainWindow.on('closed', () => { mainWindow = null })
+    mainWindow.loadURL(process.env.NODE_ENV === 'development'
+        ? 'http://localhost:8080'
+        : path.resolve(app.getAppPath(), '../renderer/index.html')
+    )
 }
 
 app.on('ready', createWindow)
