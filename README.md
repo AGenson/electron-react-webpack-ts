@@ -52,4 +52,6 @@ Same dependence in production, electron needs the *renderer* to be built.
 
 There are two sub-scripts in devolpment mode:
 - `main:dev-build`: use **Webpack** in *watch mode* to transpile the code
-- `main:dev-watch`: wait for the first build from **Webpack**, then launch **nodemon** on webpack's output to relaunch **Electron**'s instance
+- `main:dev-watch`:
+  - wait for the first build from **Webpack**
+  - then launch **nodemon** on webpack's output to relaunch **Electron**'s instance
