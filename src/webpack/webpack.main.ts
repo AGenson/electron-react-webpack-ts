@@ -6,7 +6,7 @@ const common: webpack.Configuration = {
     entry: './src/main/index.ts',
     target: 'electron-main',
     output: {
-        path: path.resolve(__dirname, '../dist/main'),
+        path: path.resolve(__dirname, '../../dist/main'),
         filename: 'main.bundle.js'
     },
     resolve: {
@@ -24,7 +24,7 @@ const common: webpack.Configuration = {
 const dev: webpack.Configuration = {
     mode: 'development',
     devtool: 'inline-source-map',
-    devServer: { writeToDisk: true }
+    //devServer: { writeToDisk: true }
 }
 
 const prod: webpack.Configuration = {

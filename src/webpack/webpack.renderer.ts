@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 const common: webpack.Configuration = {
     entry: './src/renderer/index.tsx',
     output: {
-        path: path.resolve(__dirname, '../dist/renderer'),
+        path: path.resolve(__dirname, '../../dist/renderer'),
         filename: 'renderer.bundle.js'
     },
     resolve: {
@@ -29,7 +29,7 @@ const common: webpack.Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../public/index.html')
+            template: path.resolve(__dirname, '../../public/index.html')
         })
     ]
 }

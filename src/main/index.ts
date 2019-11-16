@@ -1,5 +1,19 @@
 import { app, BrowserWindow } from 'electron'
-import * as path from 'path'
+import path from 'path'
+import fs from 'fs'
+
+const devURL: string = 'http://localhost:8080'
+const prodURL: string = path.resolve(app.getAppPath(), '../renderer/index.html')
+let URL: string
+
+if (process.env.NODE_ENV === 'development') URL = devURL
+else {
+    if (fs.existsSync(prodURL)) URL = prodURL
+    else {
+        app.quit()
+        throw new Error('Renderer build missing')
+    }
+}
 
 let mainWindow: BrowserWindow | null = null
 
@@ -11,10 +25,7 @@ function createWindow(): void {
 
     process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
     mainWindow.on('closed', () => { mainWindow = null })
-    mainWindow.loadURL(process.env.NODE_ENV === 'development'
-        ? 'http://localhost:8080'
-        : path.resolve(app.getAppPath(), '../renderer/index.html')
-    )
+    mainWindow.loadURL(URL)
 }
 
 app.on('ready', createWindow)
