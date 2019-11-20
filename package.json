@@ -18,7 +18,7 @@
   "main": "out/main/main.prod.js",
   "build": {
     "appId": "com.agenson.electron-react-template",
-    "productName": "Electron React App",
+    "productName": "Electron-React Template",
     "files": "out",
     "mac": {
       "category": "public.app-category.developer-tools",
@@ -31,14 +31,14 @@
       "contents": [
         {
           "x": 130,
-          "y": 220,
+          "y": 190,
           "type": "dir"
         },
         {
           "x": 410,
-          "y": 220,
+          "y": 190,
           "type": "link",
-          "path": "/Application"
+          "path": "/Applications"
         }
       ]
     },
