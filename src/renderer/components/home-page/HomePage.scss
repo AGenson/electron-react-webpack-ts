@@ -1,0 +1,26 @@
+.homePage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: darkslategray;
+    
+    text-align: center;
+    color: white;
+
+    img {
+        $size: 250px;
+        height: $size;
+        width: $size;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: larger;
+        line-height: 1.5em;
+    }
+}

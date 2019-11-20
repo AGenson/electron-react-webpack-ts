@@ -1,15 +1,13 @@
 import React from 'react'
 import './App.scss'
 
+import HomePage from './home-page/HomePage'
+
+// Should contain only Providers/HOCs
+// wrapping a Page/Routes component
 const App: React.FC = () => (
-    <div>
-        <header>
-            <h1>Electron-React Template</h1>
-        </header>
-        <p>
-            <br/>
-            To get started, edit <code>src/renderer/components/App.tsx</code>.
-        </p>
+    <div id="app">
+        <HomePage />
     </div>
 )
 
