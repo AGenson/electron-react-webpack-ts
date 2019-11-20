@@ -22,6 +22,7 @@
     "files": "out",
     "mac": {
       "category": "public.app-category.developer-tools",
+      "icon": "out/main/assets/icon.icns",
       "target": [
         "dmg",
         "zip"
@@ -43,12 +44,14 @@
       ]
     },
     "win": {
+      "icon": "out/main/assets/icon.ico",
       "target": [
         "nsis",
         "zip"
       ]
     },
     "linux": {
+      "icon": "out/main/assets/icon.png",
       "target": [
         "deb",
         "rpm",
@@ -82,6 +85,7 @@
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
     "@babel/preset-typescript": "^7.7.2",
+    "@types/copy-webpack-plugin": "^5.0.0",
     "@types/html-webpack-plugin": "^3.2.1",
     "@types/node": "^12.12.7",
     "@types/node-sass": "^4.11.0",
@@ -91,6 +95,7 @@
     "@types/webpack-dev-server": "^3.4.0",
     "@types/webpack-merge": "^4.1.5",
     "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.0.5",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "electron": "^7.1.1",

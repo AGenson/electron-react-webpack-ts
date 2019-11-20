@@ -2,6 +2,8 @@ import webpack from 'webpack'
 import merge from 'webpack-merge'
 import path from 'path'
 
+import CopyPlugin from 'copy-webpack-plugin'
+
 const common: webpack.Configuration = {
     entry: './src/main/index.ts',
     target: 'electron-main',
@@ -16,12 +18,19 @@ const common: webpack.Configuration = {
       __filename: false
     },
     module: {
-        rules: [{
-            test: /\.ts$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }]
-    }
+        rules: [
+            {
+                test: /\.ts$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            }
+        ]
+    },
+    plugins: [
+        new CopyPlugin([
+            { from: 'src/main/assets', to: 'assets' }
+        ])
+    ]
 }
 
 const dev: webpack.Configuration = {

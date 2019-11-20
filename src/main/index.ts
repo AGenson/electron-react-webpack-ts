@@ -6,7 +6,8 @@ let mainWindow: BrowserWindow | null = null
 function createWindow(): void {
     mainWindow = new BrowserWindow({
         width: 800,
-        height: 600
+        height: 600,
+        icon: path.join(__dirname, './assets/icon.svg')
     })
 
     process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
