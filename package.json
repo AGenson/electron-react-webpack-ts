@@ -51,7 +51,7 @@
       ]
     },
     "linux": {
-      "icon": "out/main/assets/icon.png",
+      "icon": "out/main/assets",
       "target": [
         "deb",
         "rpm",
