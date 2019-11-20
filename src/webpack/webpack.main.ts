@@ -6,11 +6,14 @@ const common: webpack.Configuration = {
     entry: './src/main/index.ts',
     target: 'electron-main',
     output: {
-        path: path.resolve(__dirname, '../../dist/main'),
-        filename: 'main.bundle.js'
+        path: path.resolve(__dirname, '../../out/main')
     },
     resolve: {
         extensions: ['.js', '.json', '.ts']
+    },
+    node: {
+      __dirname: false,
+      __filename: false
     },
     module: {
         rules: [{
@@ -24,12 +27,18 @@ const common: webpack.Configuration = {
 const dev: webpack.Configuration = {
     mode: 'development',
     devtool: 'inline-source-map',
-    //devServer: { writeToDisk: true }
+    output: {
+        filename: 'main.dev.js'
+    }
 }
 
 const prod: webpack.Configuration = {
     mode: 'production',
-    optimization: { minimize: true }
+    optimization: { minimize: true },
+    devtool: 'source-map',
+    output: {
+        filename: 'main.prod.js'
+    }
 }
 
 export default merge(common, process.env.NODE_ENV === 'development' ? dev : prod)

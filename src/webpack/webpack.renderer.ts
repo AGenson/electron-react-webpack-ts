@@ -7,11 +7,14 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 const common: webpack.Configuration = {
     entry: './src/renderer/index.tsx',
     output: {
-        path: path.resolve(__dirname, '../../dist/renderer'),
-        filename: 'renderer.bundle.js'
+        path: path.resolve(__dirname, '../../out/renderer')
     },
     resolve: {
         extensions: ['.js', '.json', '.ts', '.tsx']
+    },
+    node: {
+      __dirname: false,
+      __filename: false
     },
     module: {
         rules: [
@@ -29,20 +32,27 @@ const common: webpack.Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../../public/index.html')
+            template: path.resolve(__dirname, '../renderer/index.html')
         })
     ]
 }
 
 const dev: webpack.Configuration = {
     mode: 'development',
-    devtool: 'inline-source-map'
+    devtool: 'inline-source-map',
+    output: {
+        filename: 'renderer.dev.js'
+    }
 }
 
 const prod: webpack.Configuration = {
     mode: 'production',
     target: 'electron-renderer',
-    optimization: { minimize: true }
+    optimization: { minimize: true },
+    devtool: 'source-map',
+    output: {
+        filename: 'renderer.prod.js'
+    }
 }
 
 export default merge(common, process.env.NODE_ENV === 'development' ? dev : prod)
