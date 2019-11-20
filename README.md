@@ -36,6 +36,15 @@ Run in development mode
 yarn run dev
 ```
 
+Distribute the app on different OS:
+```
+yarn run build
+
+yarn run dist:mac
+yarn run dist:win
+yarn run dist:linux
+```
+
 ## Project Structure
 
 #### Renderer

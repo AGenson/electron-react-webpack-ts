@@ -62,6 +62,7 @@
     "clean": "rimraf out dist",
     "postinstall": "electron-builder install-app-deps",
     "dist": "electron-builder -lw",
+    "dist:mac": "electron-builder -m",
     "dist:win": "electron-builder -w",
     "dist:linux": "electron-builder -l",
     "start": "electron out/main/main.prod.js",
