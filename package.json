@@ -1,6 +1,6 @@
 {
   "name": "electron-react-webpack-ts",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Electron-React template with Typescript and Webpack",
   "keywords": [
     "Template",
